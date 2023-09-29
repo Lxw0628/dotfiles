@@ -1,0 +1,10 @@
+hint_activation_key: C-M-i
+activation_key: C-M-u
+exit: q
+buttons: a s d
+top: K
+bottom: J
+start: H
+end: L
+scroll_down: f
+scroll_up: u
