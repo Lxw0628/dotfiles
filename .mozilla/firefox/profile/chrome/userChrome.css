@@ -1,0 +1,67 @@
+/* html#main-window { */
+/*     --color-bg: #1e1f29; */
+/*     --toolbar-bgcolor: var(--color-bg) !important; */
+/**/
+/*     --gap-between-tabs: 5px; */
+/*     --margin-after-tab-list: 8x; */
+/*     --margin-before-tab-list: 8px; */
+/*     --tab-font: "Sarasa Mono T SC", sans-serif; */
+/*     --tab-font-weight: 700; */
+/*     --tab-height: 32px; */
+/*     --tabs-container-height: 85px; */
+/**/
+/*     --urlbar-container-margin: 5px; */
+/*     --urlbar-list-width: 60%; */
+/*     --urlbar-text-font: "Sarasa Mono T SC", sans-serif; */
+/*     --urlbar-text-size: 12pt; */
+/*     --urlbar-text-weight: 700; */
+/**/
+/*     --lwt-toolbar-field-focus-color: #a1ffb6 !important; */
+/*     --lwt-toolbar-field-color: #fefefa !important; */
+/*     /* Firefox variables */ */
+/*     --lwt-toolbar-field-background-color: var(--color-bg) !important; */
+/**/
+/*     --arrowpanel-background: #1e1f29 !important; */
+/*     --arrowpanel-color: white !important; */
+/*     --arrowpanel-border-color: transparent !important; */
+/* } */
+
+/* main toolbar */
+#nav-bar {
+    order: 0 !important;
+    border-top-width: 0px !important;
+    justify-content: center !important;
+}
+
+/* bookmarks toolbar */
+#PersonalToolbar {
+    order: 1 !important;
+}
+
+#titlebar {
+    order: 2 !important;
+}
+
+/* Tabs bar */
+#TabsToolbar {
+    order: 2 !important;
+    justify-content: center !important;
+}
+
+#tracking-protection-icon-container,
+#identity-box,
+#star-button-box,
+/* #back-button, */
+/* #forward-button, */
+#alltabs-button,
+#page-action-buttons,
+.search-one-offs {
+    display: none !important;
+}
+
+.tab-close-button,
+.tab-line,
+.tabbrowser-tab::before,
+.tabbrowser-tab::after {
+    display: none !important;
+}

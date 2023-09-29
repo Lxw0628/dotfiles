@@ -1,0 +1,119 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set cb
+set hi
+" 默认不换行
+set nowrap
+set ruler
+set showmatch
+set mouse=a
+" Do incremental searching.
+set incsearch
+set ignorecase
+set smartcase
+set termguicolors
+set signcolumn
+set hls
+set mps
+set more
+set nf
+set nu
+set rnu
+set scr
+set scrolloff=5
+set smd
+set sc
+set clipboard+=unnamed
+set nobackup
+set noswapfile
+
+set ideajoin
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+" Plug 'tpope/vim-commentary'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+map <leader>fm <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+let mapleader = " "
+
+imap jk <ESC>
+
+Plug 'preservim/nerdtree'
+map <leader>e :NERDTreeToggle<CR>
+
+"" 快速移动
+nmap <C-M-j> <DOWN><DOWN><DOWN><DOWN><DOWN>
+nmap <C-M-k> <UP><UP><UP><UP><UP>
+nmap <C-M-h> <HOME>
+nmap <C-M-l> <END>
+imap <c-m-j> <down><down><down><down><down>
+imap <c-m-k> <up><up><up><up><up>
+imap <c-m-h> <home>
+imap <C-M-l> <END>
+vmap <C-M-j> 5j
+vmap <C-M-k> 5k
+vmap <C-M-h> 0
+vmap <C-M-l> $
+
+"" 插入模式下移动光标
+imap <c-h> <left>
+imap <c-j> <down>
+imap <c-k> <up>
+imap <C-l> <RIGHT>
+
+"" 切换buffer
+nmap L :bnext<CR>
+nmap H :bprevious<CR>
+nmap <C-w> :bd<CR>
+
+"" 扩大和缩小选区
+vmap v :action EditorSelectWord<CR>
+vmap V :action EditorUnSelectWord<CR>
+
+nmap <leader>nh :nohl<CR>
+
+"" surround
+Plug 'tpope/vim-surround'
+
+Plug 'michaeljsmith/vim-indent-object'
+
+nmap <Space>fa :action SearchEverywhere<CR>
+nmap <Space>ff :action GotoFile<CR>
+
+" "重命名
+nmap <Space>re :action RenameElement<CR>
+"" 代码环绕
+nmap <Space>sw :action SurroundWith<CR>
+"" 跳转到定义
+nnoremap gi :action GotoImplementation<CR>
+"" 跳转到实现
+"nnoremap gi :action ImplementMethods<CR>
+
+"" 切换折叠
+nmap -- :action ExpandCollapseToggleAction<CR>
+"" 递归折叠
+nmap <S--> :action CollapseRegionRecursively<CR>
+"" 递归展开
+nmap <S-M--> :action ExpandRegionRecursively<CR>
