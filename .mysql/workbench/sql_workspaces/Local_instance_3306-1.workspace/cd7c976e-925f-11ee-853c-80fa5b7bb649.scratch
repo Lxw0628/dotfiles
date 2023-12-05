@@ -1,0 +1,1 @@
+SELECT * FROM LOLData.team_statistics;

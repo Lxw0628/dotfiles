@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<data grt_format="2.0">
+  <value _ptr_="0x56049cf56d30" type="list" content-type="object" content-struct-name="db.mgmt.ServerInstance">
+    <value type="object" struct-name="db.mgmt.ServerInstance" id="b2315702-8813-11ee-a5c3-80fa5b7bb649" struct-checksum="0x367436e2">
+      <link type="object" struct-name="db.mgmt.Connection" key="connection">b2315824-8813-11ee-a5c3-80fa5b7bb649</link>
+      <value _ptr_="0x56049d5b7ab0" type="dict" key="loginInfo"/>
+      <value _ptr_="0x56049d5b76d0" type="dict" key="serverInfo">
+        <value type="string" key="basedir">/usr/</value>
+        <value type="string" key="datadir">/var/lib/mysql/</value>
+        <value type="string" key="errorLogFilePath">stderr</value>
+        <value type="string" key="generalLogFilePath">/var/lib/mysql/lxw-arch.log</value>
+        <value type="string" key="serverVersion">8.2.0</value>
+        <value type="int" key="setupPending">1</value>
+        <value type="string" key="slowLogFilePath">/var/lib/mysql/lxw-arch-slow.log</value>
+        <value type="string" key="sys.config.path"></value>
+        <value type="string" key="sys.config.section">mysqld</value>
+        <value type="string" key="sys.preset">Custom</value>
+        <value type="string" key="sys.system">Linux</value>
+        <value type="int" key="sys.usesudo">0</value>
+        <value type="int" key="sys.usesudostatus">0</value>
+      </value>
+      <value type="string" key="name">Local 3306</value>
+    </value>
+  </value>
+</data>

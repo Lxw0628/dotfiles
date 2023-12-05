@@ -1,0 +1,20 @@
+[1, 16:13:05] SELECT * FROM make_friends.user
+LIMIT 0, 1000
+: Running...
+[1, 16:13:05] SELECT * FROM make_friends.user
+LIMIT 0, 1000
+: Fetching...
+[1, 16:13:05] SELECT * FROM make_friends.user
+LIMIT 0, 1000
+: 2 row(s) returned
+[1, 12:44:26] SELECT * FROM LOLData.team_statistics
+LIMIT 0, 1000
+: Running...
+[1, 12:44:26] SELECT * FROM LOLData.team_statistics
+LIMIT 0, 1000
+: Fetching...
+[1, 12:44:26] SELECT * FROM LOLData.team_statistics
+LIMIT 0, 1000
+: 17 row(s) returned
+[2, 12:44:39] EXPLAIN SELECT * FROM LOLData.team_statistics: Executing 
+[2, 12:44:39] EXPLAIN SELECT * FROM LOLData.team_statistics: OK

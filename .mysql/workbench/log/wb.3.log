@@ -1,0 +1,43 @@
+16:07:33 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/lxw/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+16:07:33 [INF][      WBContext]: WbContext::init
+16:07:34 [INF][            WBA]: Looking for extension modules for WBA...
+16:07:34 [INF][            WBA]: 0 extension modules found
+16:07:34 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+16:07:34 [WRN][            grt]: /home/lxw/.mysql/workbench/server_instances.xml:23: link 'b20fa846-8813-11ee-a5c3-80fa5b7bb649' <object GrtObject> key=owner could not be resolved
+16:07:34 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+16:07:34 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 8.0.34 CE build 3263449 (64 bit)
+	Configuration Directory: /home/lxw/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.18.0
+	OS:  x86_64
+	CPU: 4x Intel(R) Pentium(R) Gold G5420 CPU @ 3.80GHz (3800.166MHz) - 15.46GiB RAM
+No video adapter info available
+	Fips mode enabled: no
+
+16:07:34 [WRN][         mforms]: Resource file not found: sidebar_wb@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: sidebar_modeling@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: sidebar_migration@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: home_screen_close_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_doc_model@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_schema_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_time_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_folder_mini_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: home_screen_close_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_doc_model@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_schema_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_time_light@2x.png
+16:07:34 [WRN][         mforms]: Resource file not found: wb_tile_folder_mini_light@2x.png

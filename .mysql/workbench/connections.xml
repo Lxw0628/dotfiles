@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data grt_format="2.0">
+  <value _ptr_="0x56049cbe4e80" type="list" content-type="object" content-struct-name="db.mgmt.Connection">
+    <value type="object" struct-name="db.mgmt.Connection" id="b2315824-8813-11ee-a5c3-80fa5b7bb649" struct-checksum="0x96ba47d8">
+      <link type="object" struct-name="db.mgmt.Driver" key="driver">com.mysql.rdbms.mysql.driver.native</link>
+      <value type="string" key="hostIdentifier">Mysql@localhost:3306</value>
+      <value type="int" key="isDefault">0</value>
+      <value _ptr_="0x56049d6eb3e0" type="dict" key="modules"/>
+      <value _ptr_="0x56049d9b5f60" type="dict" key="parameterValues">
+        <value type="string" key="hostName">localhost</value>
+        <value type="int" key="lastConnected">1701662393</value>
+        <value type="int" key="port">3306</value>
+        <value type="string" key="serverVersion">8.2.0</value>
+        <value type="string" key="userName">root</value>
+      </value>
+      <value type="string" key="name">Local instance 3306</value>
+      <link type="object" struct-name="GrtObject" key="owner">8c205b80-9259-11ee-853c-80fa5b7bb649</link>
+    </value>
+  </value>
+</data>

@@ -1,11 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/lxw/.config/lvim
-- /home/lxw/Desktop/codes/web/50projects50days/answer
 - /home/lxw/.config/nvim
-- /home/lxw/Scripts
 - /home/lxw/.config/dwm
+- /home/lxw/.config/lvim
+- /home/lxw/Scripts
 startuppopupversion: 5
 customcommandshistory: []
-hidecommandlog: false
+hidecommandlog: true
 ignorewhitespaceindiffview: false
