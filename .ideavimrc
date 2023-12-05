@@ -27,14 +27,19 @@ set nf
 set nu
 set rnu
 set scr
-set scrolloff=5
+" set scrolloff=4
 set smd
 set sc
-set clipboard+=unnamed
+set clipboard+=unnamed,unnamedplus,ideaput
 set nobackup
 set noswapfile
+"当你键入搜索词时，vim会高亮显示与搜索词匹配的文本
+set hlsearch
+set which-key
 
 set ideajoin
+
+let mapleader = " "
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -55,8 +60,6 @@ map <leader>fm <Action>(ReformatCode)
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
-
-let mapleader = " "
 
 imap jk <ESC>
 
@@ -81,39 +84,54 @@ vmap <C-M-l> $
 imap <c-h> <left>
 imap <c-j> <down>
 imap <c-k> <up>
-imap <C-l> <RIGHT>
+imap <c-l> <RIGHT>
 
 "" 切换buffer
-nmap L :bnext<CR>
-nmap H :bprevious<CR>
+nmap L <Action>(NextTab)
+nmap H <Action>(PreviousTab)
 nmap <C-w> :bd<CR>
 
-"" 扩大和缩小选区
-vmap v :action EditorSelectWord<CR>
-vmap V :action EditorUnSelectWord<CR>
+" 扩大和缩小选区
+vmap v <Action>(EditorSelectWord)
+vmap V <Action>(EditorUnSelectWord)
+
+nmap <M-S-j> <Action>(MoveLineDown)
+nmap <M-S-k> <Action>(MoveLineUp)
+vmap <M-S-j> <Action>(MoveLineDown)
+vmap <M-S-k> <Action>(MoveLineUp)
 
 nmap <leader>nh :nohl<CR>
 
-"" surround
+" surround
 Plug 'tpope/vim-surround'
+set surround
 
 Plug 'michaeljsmith/vim-indent-object'
 
-nmap <Space>fa :action SearchEverywhere<CR>
-nmap <Space>ff :action GotoFile<CR>
+nmap <leader>fa <Action>(SearchEverywhere)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fc <Action>(GotoClass)
 
-" "重命名
-nmap <Space>re :action RenameElement<CR>
-"" 代码环绕
-nmap <Space>sw :action SurroundWith<CR>
-"" 跳转到定义
-nnoremap gi :action GotoImplementation<CR>
-"" 跳转到实现
-"nnoremap gi :action ImplementMethods<CR>
+" nmap <leader>uf <Action>(ToggleFullScreenGroup)
+nmap <leader>up <Action>(TogglePresentationMode)
+nmap <leader>uz <Action>(ToggleZenMode)
 
-"" 切换折叠
-nmap -- :action ExpandCollapseToggleAction<CR>
-"" 递归折叠
-nmap <S--> :action CollapseRegionRecursively<CR>
-"" 递归展开
-nmap <S-M--> :action ExpandRegionRecursively<CR>
+" nmap <leader>ca <Action>(CloseActiveTab)
+
+" 重命名
+nmap <leader>re <Action>(RenameElement)
+" 代码环绕
+vmap <leader>sw <Action>(SurroundWith)
+nmap <leader>sw <Action>(SurroundWith)
+" 生成
+nmap <leader>gen <Action>(Generate)
+
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(ImplementMethods)
+nmap gk <Action>(QuickJavaDoc)
+nmap gd <Action>(GotoDeclaration)
+nmap gm <Action>(GotoMember)
+nmap gf <Action>(GotoFiles)
+
+" 切换折叠
+nmap -- <Action>(ExpandCollapseToggleAction)
