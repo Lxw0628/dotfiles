@@ -1,0 +1,5 @@
+@-moz-document domain("github.com") {
+  pre, code {
+    font-family: "Maple Mono NF CN" !important;
+  } 
+}

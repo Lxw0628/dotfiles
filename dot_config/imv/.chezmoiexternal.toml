@@ -1,0 +1,16 @@
+["frappe.config"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/imv/refs/heads/main/themes/frappe.config"
+    refreshPeriod = "168h"
+["latte.config"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/imv/refs/heads/main/themes/latte.config"
+    refreshPeriod = "168h"
+["macchiato.config"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/imv/refs/heads/main/themes/macchiato.config"
+    refreshPeriod = "168h"
+["mocha.config"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/imv/refs/heads/main/themes/mocha.config"
+    refreshPeriod = "168h"

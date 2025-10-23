@@ -1,0 +1,89 @@
+[[mgr.prepend_keymap]]
+on = [ ";" ]
+run = "shell --confirm"
+desc = "Run a shell command"
+
+[[mgr.prepend_keymap]]
+on = [ ":" ]
+run = "shell --interactive"
+desc = "Run a shell command (block the UI until the command finishes)"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "m" ]
+run = "cd /mnt"
+desc = "Go to /mnt"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "p" ]
+run = "cd ~/Pictures"
+desc = "Go to ~/Pictures"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "l" ]
+run = "cd ~/.local"
+desc = "Go to ~/.local"
+
+## === plugin ===
+# yamb.yazi
+[[mgr.prepend_keymap]]
+on = [ "u", "a" ]
+run = "plugin yamb save"
+desc = "Add bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "g" ]
+run = "plugin yamb jump_by_key"
+desc = "Jump bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "G" ]
+run = "plugin yamb jump_by_fzf"
+desc = "Jump bookmark by fzf"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "d" ]
+run = "plugin yamb delete_by_key"
+desc = "Delete bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "D" ]
+run = "plugin yamb delete_by_fzf"
+desc = "Delete bookmark by fzf"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "A" ]
+run = "plugin yamb delete_all"
+desc = "Delete all bookmarks"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "r" ]
+run = "plugin yamb rename_by_key"
+desc = "Rename bookmark by key"
+
+[[mgr.prepend_keymap]]
+on = [ "u", "R" ]
+run = "plugin yamb rename_by_fzf"
+desc = "Rename bookmark by fzf"
+
+# chmod.yazi
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+# lazygit.yazi
+[[mgr.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
+
+# mount.yazi
+[[mgr.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
+
+# ouch.yazi 压缩
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"

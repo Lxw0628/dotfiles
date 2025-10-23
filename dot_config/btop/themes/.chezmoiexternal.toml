@@ -1,0 +1,16 @@
+["catppuccin_frappe.theme"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_frappe.theme"
+    refreshPeriod = "168h"
+["catppuccin_latte.theme"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_latte.theme"
+    refreshPeriod = "168h"
+["catppuccin_macchiato.theme"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_macchiato.theme"
+    refreshPeriod = "168h"
+["catppuccin_mocha.theme"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_mocha.theme"
+    refreshPeriod = "168h"

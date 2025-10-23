@@ -1,0 +1,26 @@
+typeset -U path
+path=(~/.local/share/bin $path[@])
+
+export EDITOR='nvim'
+
+# 微信环境变量
+# export wechatXserverPatch=1
+# export trashAppUnsafe=1
+# export wechatUnsafe=1
+
+export XMODIFIERS=@im=fcitx
+
+# bat_theme
+export BAT_THEME="Catppuccin Mocha"
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Fix Java programs
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+#GTK THEME
+# export GTK_THEME="catppuccin-mocha-pink-standard+default"
+
+export TERMINAL=kitty
+
+# export NVIM_SWITCH=nvim-lazyvim

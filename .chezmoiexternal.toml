@@ -1,0 +1,26 @@
+[".config/dwm"]
+    type = "git-repo"
+    url = "https://github.com/Lxw0628/dwm.git"
+    refreshPeriod = "168h"
+
+[".config/nvim"]
+    type = "git-repo"
+    url = "https://github.com/Lxw0628/nvim.git"
+    refreshPeriod = "168h"
+    [".config/nvim".clone]
+        args = [ "--single-branch", "-b", "LazyVim" ]
+[".config/nvim-astronvim"]
+    type = "git-repo"
+    url = "https://github.com/Lxw0628/nvim.git"
+    refreshPeriod = "168h"
+    [".config/nvim-astronvim".clone]
+        args = [ "--single-branch", "-b", "astronvim" ]
+
+[".config/st"]
+    type = "git-repo"
+    url = "https://github.com/Lxw0628/st.git"
+    refreshPeriod = "168h"
+    [".config/st".clone]
+        args = [ "--single-branch", "-b", "st-flexipatch" ]
+
+

@@ -1,0 +1,28 @@
+/* 反转GitHub书签图标颜色 */
+.bookmark-item image[src*="github.com"] {
+  filter: invert(1) hue-rotate(180deg) brightness(1.5) !important;
+}
+
+/* 冻结tab呈现灰色 */
+.tabbrowser-tab:not([linkedpanel]) {
+    opacity: 0.4 !important;
+}
+
+#sidebar {
+    border: none !important;
+}
+
+/* cascade-tcr.css */
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+    margin-left: 0px;
+}
+
+/* 随时可能失效 */
+/* STG更新后可删除 */
+#tabbrowser-tabs tab-group:not(:has(.tabbrowser-tab:not([hidden]))) .tab-group-label-container {
+    margin: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+    padding: 0 !important;
+    visibility: hidden !important;
+}

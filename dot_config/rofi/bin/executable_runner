@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/config/runner.rasi"
+
+# 一级菜单
+main_menu=("color picker" "toggle opacity" "change themes" "wallpaper changer" "dwm-msg")
+
+# 二级菜单 - wallpaper
+wallpaper_menu=("default wallpaper" "random wallpaper" "autochange wallpaper" "chose wallpaper" "dynamic wallpaper")
+
+# 二级菜单 - dwm-msg
+dwmmsg_menu=("toggleall tags bar")
+
+# 显示菜单并返回选择
+show_menu() {
+  echo -e "$1" | $rofi_command -p "$2" -dmenu -selected-row "$3"
+}
+
+# 主菜单逻辑
+choice_item=0
+while true; do
+  chosen=$(show_menu "$(printf "%s\n" "${main_menu[@]}")" "Main Menu" $choice_item)
+  case "$chosen" in
+  "color picker")
+    choice_item=0
+    sh "$HOME/Scripts/rofi/color-picker.sh"
+    exit 0
+    ;;
+  "change themes")
+    choice_item=1
+    sh "$HOME/Scripts/rofi/themes_change/theme.sh"
+    exit 0
+    ;;
+  "toggle opacity")
+    choice_item=2
+    sh "$HOME/.config/picom/toggle-opacity.sh"
+    exit 0
+    ;;
+  "wallpaper changer")
+    choice_item=3
+    choice_wallpaper_changer_item=0
+    while true; do
+      wallpaper_choice=$(show_menu "$(printf "%s\n" "${wallpaper_menu[@]}")" "Wallpaper Changer" $choice_wallpaper_changer_item)
+      case "$wallpaper_choice" in
+      "default wallpaper")
+        choice_wallpaper_changer_item=0
+        "$HOME/Scripts/wallpapers.sh" "default"
+        exit 0
+        ;;
+      "random wallpaper")
+        choice_wallpaper_changer_item=1
+        "$HOME/Scripts/wallpapers.sh" "random"
+        ;;
+      "autochange wallpaper")
+        choice_wallpaper_changer_item=2
+        "$HOME/Scripts/wallpapers.sh" "autochange"
+        # exit 0
+        ;;
+      "chose wallpaper")
+        choice_wallpaper_changer_item=3
+        # browse_wallpapers
+        ;;
+      "dynamic wallpaper")
+        choice_wallpaper_changer_item=4
+        "$HOME/Scripts/wallpapers.sh" "dynamic"
+        ;;
+      *) break ;;
+      esac
+    done
+    ;;
+  "dwm-msg")
+    choice_item=4
+    choice_dwmmsg_changer_item=0
+    while true; do
+      dwmmsg_choice=$(show_menu "$(printf "%s\n" "${dwmmsg_menu[@]}")" "dwm msg" $choice_dwmmsg_changer_item)
+      case "$dwmmsg_choice" in
+      "toggleall tags bar")
+        choice_dwmmsg_changer_item=0
+        dwm-msg --ignore-reply run_command toggleallbar
+        ;;
+      *) break ;;
+      esac
+    done
+    ;;
+  *) exit 0 ;;
+  esac
+done

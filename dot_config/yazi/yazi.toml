@@ -1,0 +1,22 @@
+# yazi.toml
+[mgr]
+show_hidden = false
+sort_by = "natural"
+
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true },
+  { run = 'code "$@"', block = false, desc = "VSCode" },
+]
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+

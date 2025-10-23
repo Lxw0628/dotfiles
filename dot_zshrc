@@ -1,0 +1,145 @@
+autoload -U compinit promptinit
+compinit
+promptinit
+
+# 添加下面的配置可以启动使用方向键控制的自动补全：
+zstyle ':completion:*' menu select
+# 添加下面的配置可以启动命令行别名的自动补全：
+setopt completealiases
+# 保留1w条历史记录
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+# 不保留重复的历史记录项
+setopt hist_ignore_all_dups
+# 在命令前添加空格，不将此命令添加到记录文件中
+setopt hist_ignore_space
+setopt hist_fcntl_lock 2>/dev/null
+setopt hist_reduce_blanks
+# 多个zsh共享记录
+setopt SHARE_HISTORY
+# autocd
+setopt AUTO_CD
+# 帮助命令
+autoload -U run-help
+autoload run-help-git
+autoload run-help-svn
+autoload run-help-svk
+unalias run-help
+alias help=run-help
+# 刷新自动补全
+zstyle ':completion:*' rehash truekkkkkkkk
+
+source /usr/share/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+bindkey '^I' fzf_completion
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/git/git.plugin.zsh
+# source /usr/share/nvm/init-nvm.sh
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# fzf-zsh-completion config
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+# 似乎无法复制
+# source ~/.local/share/zsh/plugins/zsh-shift-select/zsh-shift-select.plugin.zsh
+
+# 设置为emacs模式
+bindkey -e
+# 设置快捷键
+# ctrl+<Left> / ctrl+<Right> 单词跳跃
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+# ctrl+<Backspace> 删除光标左单词
+bindkey '^H' backward-kill-word
+# del / ctrl+del 删除光标右字符和单词
+bindkey '^[[3~' delete-char
+bindkey '^[[3;5~' kill-word
+
+alias ls='lsd --color=auto -v'
+alias grep='grep --color=auto'
+alias f='fetch'
+alias ra='yazi'
+alias vi='nvim'
+alias vim='nvim'
+alias vima="NVIM_APPNAME=nvim-astronvim vim"
+
+alias r2w='sudo grub-reboot 2;reboot'
+alias reboot2win='sudo grub-reboot 2;reboot'
+
+alias lg="lazygit"
+alias ff="fastfetch"
+alias tree="tree -C --dirsfirst"
+
+# wd 跳转
+wd() {
+  . /usr/share/wd/wd.sh
+}
+
+# export TERM="xterm-256color"
+
+function copy() {
+  if [ -f "$1" ]; then
+    xclip -selection c < "$1"
+  else
+    echo -n "$1" | xclip -selection c
+  fi
+}
+
+# 自动执行ls
+# chpwd钩子函数，改变工作目录时自动执行该函数
+# function chpwd () {
+#   ls
+# }
+
+# `y` shell wrapper that provide the ability to chaneg the current working directory when exiting Yazi.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd" > /dev/null
+	fi
+	rm -f -- "$tmp"
+}
+
+function todo() {
+  pushd ~/Documents/ > /dev/null
+  vim todos.md
+  popd > /dev/null
+}
+
+function doc() {
+  pushd ~/Documents/ > /dev/null
+  vim docs.md
+  popd > /dev/null
+}
+
+# catppuccin/fzf
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
+
+# fetch
+
+# starship
+eval "$(starship init zsh)"
+
+___MY_VMOPTIONS_SHELL_FILE="$HOME/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+export PATH=/home/lxw0628/.local/bin:/home/lxw0628/.local/share/bin:/home/lxw0628/.node_modules/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+[ -f /home/lxw0628/.shelloracle.zsh ] && source /home/lxw0628/.shelloracle.zsh

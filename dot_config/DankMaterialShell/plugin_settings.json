@@ -1,0 +1,33 @@
+{
+  "worldClock": {
+    "enabled": true,
+    "timezones": [
+      {
+        "timezone": "Asia/Shanghai",
+        "label": "本地"
+      },
+      {
+        "timezone": "America/New_York",
+        "label": "纽约"
+      }
+    ]
+  },
+  "dankActions": {
+    "enabled": true
+  },
+  "dankPomodoroTimer": {
+    "enabled": false
+  },
+  "dankHooks": {
+    "enabled": false
+  },
+  "dankBatteryAlerts": {
+    "enabled": false
+  },
+  "niriWindows": {
+    "enabled": true
+  },
+  "wallpaperShufflerPlugin": {
+    "enabled": true
+  }
+}

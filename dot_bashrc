@@ -1,0 +1,23 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+export EDIROT='nvim'
+export TERMINAL=kitty
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+alias f='fastfetch'
+alias ra='yazi'
+
+alias vi='nvim'
+alias vim='nvim'
+
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+export PATH=/home/lxw0628/.local/bin:/home/lxw0628/.local/share/bin:/home/lxw0628/.node_modules/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+[ -f /home/lxw0628/.shelloracle.bash ] && source /home/lxw0628/.shelloracle.bash

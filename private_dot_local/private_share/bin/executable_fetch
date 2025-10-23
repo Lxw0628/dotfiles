@@ -1,0 +1,34 @@
+#!/bin/bash
+
+print_logo_and_info() {
+  user=$(whoami)
+  host=$(uname -a | awk '{print $2}')
+
+  os="$(source /etc/os-release && echo "$PRETTY_NAME")"
+  shell_info=$(echo "$SHELL" | awk -F/ '{for ( i=1; i <= NF; i++) sub(".", substr(toupper($i),1,1) , $i); print $NF}')
+  wm_info=$(wmctrl -m | grep Name | awk '{print $2}')
+  terminal_info=$(echo "$TERM" | awk -F'-' '{print $2}')
+
+  mem_total_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+  mem_free_kb=$(grep MemAvailable /proc/meminfo | awk '{print $2}')
+  mem_used_kb=$((mem_total_kb - mem_free_kb))
+
+  mem_total_gb=$(echo "scale=2; $mem_total_kb/1024/1024" | bc)
+  mem_used_gb=$(echo "scale=2; $mem_used_kb/1024/1024" | bc)
+
+  mem_info="$mem_used_gb/$mem_total_gb GB"
+  # mem_info=$(free -h --si | awk '/^内存:/ {print $3 "/" $2}')
+
+  echo -e "  "
+  echo -e "  \e[1;34m       /\       \e[0m    \e[1;31m$user\e[0m\e[1;34m@$host\e[0m"
+  echo -e "  \e[1;34m      /  \      \e[0m    \e[1;35mOS:\e[0m        $os"
+  echo -e "  \e[1;34m     /\   \     \e[0m    \e[1;35mWM:\e[0m        $wm_info"
+  echo -e "  \e[1;34m    /      \    \e[0m    \e[1;35mShell:\e[0m     $shell_info"
+  echo -e "  \e[1;34m   /   ,,   \   \e[0m    \e[1;35mTerminal:\e[0m  $terminal_info"
+  echo -e "  \e[1;34m  /   |  |  -\  \e[0m    \e[1;35mMemory:\e[0m    $mem_info"
+  echo -e "  \e[1;34m /_-''    ''-_\\ \e[0m    \e[0;30m▄▄▄\e[0;31m▄▄▄\e[0;32m▄▄▄\e[0;33m▄▄▄\e[0;34m▄▄▄\e[0;35m▄▄▄\e[0;36m▄▄▄\e[0;37m▄▄▄\e[0m"
+  # echo -e ""
+}
+
+clear
+print_logo_and_info

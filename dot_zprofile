@@ -1,0 +1,10 @@
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+ulimit -n 65536
+
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+
+# 自动运行startx
+# [[ -z $DISPLAY && $TTY = "/dev/tty1" ]] && exec startx

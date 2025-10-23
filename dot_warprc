@@ -1,0 +1,12 @@
+code:~/code
+config:~/.config
+dwm:~/.config/dwm
+media:/run/media
+nvim:~/.config/nvim
+obsidian:~/Documents/Obsidian/Lxw0628
+osu:/mnt/data/Games/osu-lazer
+pic:~/Pictures
+project:~/code/projects
+script:~/Scripts
+userapp:~/.local/share/applications
+vue:~/code/vue
