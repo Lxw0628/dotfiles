@@ -13,7 +13,7 @@
     ]
   },
   "dankActions": {
-    "enabled": true
+    "enabled": false
   },
   "dankPomodoroTimer": {
     "enabled": false
@@ -29,5 +29,22 @@
   },
   "wallpaperShufflerPlugin": {
     "enabled": true
+  },
+  "customActions": {
+    "variants": [
+      {
+        "icon": "terminal",
+        "displayText": "R2W",
+        "displayCommand": "",
+        "clickCommand": "r2w",
+        "middleClickCommand": "r2w",
+        "rightClickCommand": "r2w",
+        "updateInterval": 0,
+        "showIcon": true,
+        "showText": true,
+        "id": "variant_1761399402079",
+        "name": "RebootToWin"
+      }
+    ]
   }
 }
