@@ -3,6 +3,7 @@
   "customThemeFile": "",
   "matugenScheme": "scheme-rainbow",
   "runUserMatugenTemplates": true,
+  "matugenTargetMonitor": "",
   "dankBarTransparency": 1,
   "dankBarWidgetTransparency": 0.85,
   "popupTransparency": 0.92,
@@ -88,7 +89,7 @@
     }
   ],
   "showWorkspaceIndex": true,
-  "workspaceScrolling": true,
+  "workspaceScrolling": false,
   "showWorkspacePadding": false,
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
@@ -98,6 +99,7 @@
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
   "runningAppsCompactMode": true,
+  "keyboardLayoutNameCompactMode": true,
   "runningAppsCurrentWorkspace": true,
   "runningAppsGroupByApp": false,
   "clockDateFormat": "MMMd日 ddd",
@@ -115,23 +117,24 @@
     {
       "id": "runningApps",
       "enabled": true
-    }
-  ],
-  "dankBarCenterWidgets": [
+    },
+    {
+      "id": "spacer",
+      "enabled": true,
+      "size": 20
+    },
     {
       "id": "weather",
       "enabled": true
     },
     {
-      "id": "separator",
+      "id": "privacyIndicator",
       "enabled": true
-    },
+    }
+  ],
+  "dankBarCenterWidgets": [
     {
       "id": "clock",
-      "enabled": true
-    },
-    {
-      "id": "privacyIndicator",
       "enabled": true
     }
   ],
@@ -150,11 +153,13 @@
     },
     {
       "id": "cpuUsage",
-      "enabled": true
+      "enabled": true,
+      "minimumWidth": false
     },
     {
       "id": "memUsage",
-      "enabled": true
+      "enabled": true,
+      "minimumWidth": false
     },
     {
       "id": "notificationButton",
@@ -234,6 +239,8 @@
   "widgetBackgroundColor": "sth",
   "surfaceBase": "s",
   "wallpaperFillMode": "Fill",
+  "blurredWallpaperLayer": false,
+  "blurWallpaperOnOverview": true,
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,

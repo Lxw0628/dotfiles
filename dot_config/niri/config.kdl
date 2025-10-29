@@ -151,7 +151,7 @@ layout {
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
     shadow {
-        on
+        // on
         softness 30
         spread 5
         offset x=2 y=2
@@ -563,4 +563,5 @@ binds {
 
 debug {
     render-drm-device "/dev/dri/renderD128"
+    honor-xdg-activation-with-invalid-serial
 }
