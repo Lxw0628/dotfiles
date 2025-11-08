@@ -23,6 +23,11 @@ on = [ "g", "l" ]
 run = "cd ~/.local"
 desc = "Go to ~/.local"
 
+[[mgr.prepend_keymap]]
+on = [ "g", "/" ]
+run = "cd /"
+desc = "Go to /"
+
 ## === plugin ===
 # yamb.yazi
 [[mgr.prepend_keymap]]

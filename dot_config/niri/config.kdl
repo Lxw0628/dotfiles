@@ -1,3 +1,14 @@
+environment {
+    LANG "zh_CN.UTF-8"
+    LANGUAGE "zh_CN:en_US"
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    TERMINAL "kitty"
+}
+
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
@@ -173,6 +184,7 @@ layout {
 
 layer-rule {
     match namespace="^quickshell$"
+    match namespace="dms:blurwallpaper"
     place-within-backdrop true
 }
 
@@ -191,17 +203,7 @@ spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 spawn-at-startup "dms" "run"
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
 spawn-at-startup "clash-verge"
-
-environment {
-    LANG "zh_CN.UTF-8"
-    LANGUAGE "zh_CN:en_US"
-    XDG_CURRENT_DESKTOP "niri"
-    QT_QPA_PLATFORM "wayland"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    TERMINAL "kitty"
-}
+// spawn-at-startup "bash" "-c" "foots"
 
 hotkey-overlay {
     skip-at-startup
@@ -303,6 +305,7 @@ window-rule {
 
 window-rule {
     match app-id="kitty"
+    match app-id="footclient"
     opacity 0.95
 }
 
@@ -339,6 +342,7 @@ window-rule {
         inactive-color "#7d0d2d"
     }
 }
+
 
 binds {
     // === Application ===
@@ -562,6 +566,6 @@ binds {
 }
 
 debug {
-    render-drm-device "/dev/dri/renderD128"
-    honor-xdg-activation-with-invalid-serial
+    // render-drm-device "/dev/dri/renderD128"
+    // honor-xdg-activation-with-invalid-serial
 }

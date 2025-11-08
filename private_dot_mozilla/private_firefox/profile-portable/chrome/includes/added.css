@@ -12,7 +12,6 @@
     border: none !important;
 }
 
-/* cascade-tcr.css */
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
     margin-left: 0px;
 }
@@ -25,4 +24,9 @@
     max-width: 0 !important;
     padding: 0 !important;
     visibility: hidden !important;
+}
+
+/* 隐藏右上角的缩小关闭按钮 */
+.titlebar-buttonbox-container {
+    display: none !important;
 }
