@@ -13,7 +13,7 @@
     ]
   },
   "dankActions": {
-    "enabled": false
+    "enabled": true
   },
   "dankPomodoroTimer": {
     "enabled": false
@@ -33,17 +33,17 @@
   "customActions": {
     "variants": [
       {
-        "icon": "terminal",
-        "displayText": "R2W",
-        "displayCommand": "",
-        "clickCommand": "r2w",
-        "middleClickCommand": "r2w",
-        "rightClickCommand": "r2w",
-        "updateInterval": 0,
+        "icon": "LN",
+        "displayText": "LN",
+        "displayCommand": "mmsg -gl | awk '/HDMI-A-2 layout/ {print $NF}'",
+        "clickCommand": "",
+        "middleClickCommand": "",
+        "rightClickCommand": "",
+        "updateInterval": 1,
         "showIcon": true,
         "showText": true,
-        "id": "variant_1761399402079",
-        "name": "RebootToWin"
+        "id": "variant_1762578378750",
+        "name": "Layout Name"
       }
     ]
   }

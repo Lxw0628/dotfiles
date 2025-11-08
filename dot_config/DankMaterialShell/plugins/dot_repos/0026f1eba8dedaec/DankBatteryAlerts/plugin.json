@@ -8,8 +8,5 @@
     "type": "daemon",
     "component": "./DankBatteryAlerts.qml",
     "settings": "./DankBatteryAlertsSettings.qml",
-    "permissions": [
-        "settings_read",
-        "settings_write"
-    ]
+    "permissions": ["settings_read", "settings_write"]
 }

@@ -7,16 +7,9 @@ import qs.Modules.Plugins
 
 PluginSettings {
     id: root
-    pluginId: "customActions"
+    pluginId: "dankActions"
 
     property string editingVariantId: ""
-
-    onVariantsChanged: {
-        variantsModel.clear()
-        for (var i = 0; i < variants.length; i++) {
-            variantsModel.append(variants[i])
-        }
-    }
 
     function loadVariantForEditing(variantData) {
         editingVariantId = variantData.id || ""
@@ -112,6 +105,10 @@ PluginSettings {
                         id: nameField
                         width: parent.width
                         placeholderText: "e.g., Power Profile"
+                        keyNavigationTab: iconField
+                        onFocusStateChanged: hasFocus => {
+                            if (hasFocus) root.ensureItemVisible(nameField)
+                        }
                     }
                 }
 
@@ -129,6 +126,11 @@ PluginSettings {
                         id: iconField
                         width: parent.width
                         placeholderText: "e.g., power_settings_new"
+                        keyNavigationBacktab: nameField
+                        keyNavigationTab: displayTextField
+                        onFocusStateChanged: hasFocus => {
+                            if (hasFocus) root.ensureItemVisible(iconField)
+                        }
                     }
                 }
             }
@@ -147,6 +149,11 @@ PluginSettings {
                     id: displayTextField
                     width: parent.width
                     placeholderText: "Text to show (or leave empty if using command output)"
+                    keyNavigationBacktab: iconField
+                    keyNavigationTab: displayCommandField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(displayTextField)
+                    }
                 }
             }
 
@@ -164,6 +171,11 @@ PluginSettings {
                     id: displayCommandField
                     width: parent.width
                     placeholderText: 'e.g., echo "Hello World" or powerprofilesctl get'
+                    keyNavigationBacktab: displayTextField
+                    keyNavigationTab: clickCommandField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(displayCommandField)
+                    }
                 }
 
                 StyledText {
@@ -189,6 +201,11 @@ PluginSettings {
                     id: clickCommandField
                     width: parent.width
                     placeholderText: "e.g., notify-send 'Clicked!' or cycle-power-profile.sh"
+                    keyNavigationBacktab: displayCommandField
+                    keyNavigationTab: middleClickCommandField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(clickCommandField)
+                    }
                 }
 
                 StyledText {
@@ -214,6 +231,11 @@ PluginSettings {
                     id: middleClickCommandField
                     width: parent.width
                     placeholderText: "e.g., notify-send 'Middle clicked!'"
+                    keyNavigationBacktab: clickCommandField
+                    keyNavigationTab: rightClickCommandField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(middleClickCommandField)
+                    }
                 }
             }
 
@@ -231,6 +253,11 @@ PluginSettings {
                     id: rightClickCommandField
                     width: parent.width
                     placeholderText: "e.g., notify-send 'Right clicked!'"
+                    keyNavigationBacktab: middleClickCommandField
+                    keyNavigationTab: updateIntervalField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(rightClickCommandField)
+                    }
                 }
             }
 
@@ -249,6 +276,10 @@ PluginSettings {
                     width: parent.width
                     placeholderText: "0"
                     text: "0"
+                    keyNavigationBacktab: rightClickCommandField
+                    onFocusStateChanged: hasFocus => {
+                        if (hasFocus) root.ensureItemVisible(updateIntervalField)
+                    }
                 }
 
                 StyledText {
@@ -323,7 +354,8 @@ PluginSettings {
                     }
 
                     if (root.editingVariantId) {
-                        updateVariant(root.editingVariantId, nameField.text, variantConfig)
+                        variantConfig.name = nameField.text
+                        updateVariant(root.editingVariantId, variantConfig)
                     } else {
                         createVariant(nameField.text, variantConfig)
                     }
@@ -359,9 +391,7 @@ PluginSettings {
                 clip: true
                 spacing: Theme.spacingXS
 
-                model: ListModel {
-                    id: variantsModel
-                }
+                model: root.variantsModel
 
                 delegate: StyledRect {
                     required property var model

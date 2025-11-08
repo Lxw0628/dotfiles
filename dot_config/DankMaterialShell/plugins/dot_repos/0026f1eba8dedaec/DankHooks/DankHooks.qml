@@ -14,6 +14,11 @@ PluginComponent {
     property string hookBatteryLevel: pluginData.batteryLevel || ""
     property string hookBatteryCharging: pluginData.batteryCharging || ""
     property string hookBatteryPluggedIn: pluginData.batteryPluggedIn || ""
+    property string hookPowerRequestLock: pluginData.hookPowerRequestLock || ""
+    property string hookPowerMonitorOff: pluginData.hookPowerMonitorOff || ""
+    property string hookPowerMonitorOn: pluginData.hookPowerMonitorOn || ""
+    property string hookPowerSuspend: pluginData.hookPowerSuspend || ""
+    property string hookPowerHibernate: pluginData.hookPowerHibernate || ""
     property string hookWifiConnected: pluginData.wifiConnected || ""
     property string hookWifiSSID: pluginData.wifiSSID || ""
     property string hookEthernetConnected: pluginData.ethernetConnected || ""
@@ -25,12 +30,20 @@ PluginComponent {
     property string hookDoNotDisturb: pluginData.doNotDisturb || ""
     property string hookMediaPlaying: pluginData.mediaPlaying || ""
     property string hookIdleStateActive: pluginData.idleStateActive || ""
+    property string hookMonitorWallpaper: pluginData.monitorWallpaper || ""
 
     Connections {
         target: SessionData
         function onWallpaperPathChanged() {
             if (hookWallpaperPath) {
                 executeHook(hookWallpaperPath, "onWallpaperChanged", SessionData.wallpaperPath)
+            }
+        }
+
+        function onMonitorWallpapersChanged() {
+            if (hookMonitorWallpaper) {
+                const wallpapersJson = JSON.stringify(SessionData.monitorWallpapers)
+                executeHook(hookMonitorWallpaper, "onMonitorWallpapersChanged", wallpapersJson)
             }
         }
 
@@ -82,6 +95,40 @@ PluginComponent {
             }
         }
     }
+    
+    Connections {
+         target: IdleService
+         
+         function onLockRequested() {
+             if (hookPowerRequestLock) {
+                 executeHook(hookPowerRequestLock, "onLockRequested", "")
+             }
+         }
+         
+         function onRequestMonitorOff() {
+             if (hookPowerMonitorOff) {
+                 executeHook(hookPowerMonitorOff, "onRequestMonitorOff", "")
+             }
+         }
+         
+         function onRequestMonitorOn() {
+             if (hookPowerMonitorOn) {
+                 executeHook(hookPowerMonitorOn, "onRequestMonitorOn", "")
+             }
+         }
+         
+         function onRequestSuspend() {
+             if (hookPowerSuspend) {
+                 executeHook(hookPowerSuspend, "onRequestSuspend", "")
+             }
+         }
+         
+         function onRequestHibernate() {
+             if (hookPowerHibernate) {
+                 executeHook(hookPowerHibernate, "onRequestHibernate", "")
+             }
+         }
+     }
 
     Connections {
         target: NetworkService
@@ -177,7 +224,12 @@ PluginComponent {
             property string hookName: ""
             property string hookValue: ""
 
-            command: [hookScript, hookName, hookValue]
+            command: ["sh", "-c", "$HOOK_SCRIPT \"$HOOK_NAME\" \"$HOOK_VALUE\""]
+            environment: {
+                "HOOK_SCRIPT": hookScript,
+                "HOOK_NAME": hookName,
+                "HOOK_VALUE": hookValue
+            }
 
             stdout: StdioCollector {
                 onStreamFinished: {
