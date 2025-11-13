@@ -13,7 +13,8 @@
     ]
   },
   "dankActions": {
-    "enabled": true
+    "enabled": false,
+    "variants": []
   },
   "dankPomodoroTimer": {
     "enabled": false

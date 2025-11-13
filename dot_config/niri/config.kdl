@@ -28,10 +28,10 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x1080@59.997"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -46,12 +46,14 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    // position x=1280 y=0
 }
 
 output "HDMI-A-2" {
     mode "1920x1080@120.000"
     scale 1
+    focus-at-startup
+    position x=1280 y=0
 }
 
 // gestures {
@@ -99,7 +101,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 0
     background-color "transparent"
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -127,7 +129,7 @@ layout {
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.66667; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
     // By default focus ring and border are rendered as a solid background rectangle
@@ -141,7 +143,7 @@ layout {
     // Alternatively, you can override it with a window rule called
     // `draw-border-with-background`.
     border {
-        // off
+        off
         width 2
         // active-color   "#707070"      // Neutral gray
         active-color "#ffc87f"
@@ -202,7 +204,8 @@ overview {
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 spawn-at-startup "dms" "run"
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-spawn-at-startup "clash-verge"
+spawn-at-startup "foot" "-s"
+// spawn-at-startup "clash-verge"
 // spawn-at-startup "bash" "-c" "foots"
 
 hotkey-overlay {
@@ -262,12 +265,14 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
-    geometry-corner-radius 12
+    // geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 window-rule {
     draw-border-with-background false
-    geometry-corner-radius 12
+    // geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -287,6 +292,11 @@ window-rule {
     match app-id=r#"^steam$"#
     match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 window-rule {
@@ -326,6 +336,20 @@ window-rule {
 }
 
 window-rule {
+    match app-id="com.gabm.satty" title="satty"
+    border {//截图软件悬浮并添加边框
+        on
+        width 2
+        active-color "#61AFEF"
+    }
+}
+
+window-rule {
+    match app-id=r#"wechat"#
+    open-focused false//解决搜索框失去焦点问题
+}
+
+window-rule {
     match is-window-cast-target=true
     focus-ring {
         active-color "#f38ba8"
@@ -350,12 +374,13 @@ binds {
     Mod+E hotkey-overlay-title="文件管理器" { spawn "thunar"; }
 
     // === System & Overview ===
-    Mod+D { spawn "niri" "msg" "action" "toggle-overview"; }
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+D repeat=false { toggle-overview; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "footclient"; }
     Alt+Space hotkey-overlay-title="Application Launcher" { 
         spawn "dms" "ipc" "call" "spotlight" "toggle"; 
     }
@@ -550,6 +575,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Alt+Ctrl+A { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; }
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Alt+L { power-off-monitors; }

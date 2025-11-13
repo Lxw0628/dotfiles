@@ -1,7 +1,7 @@
 {
   "currentThemeName": "cat-blue",
   "customThemeFile": "",
-  "matugenScheme": "scheme-rainbow",
+  "matugenScheme": "scheme-neutral",
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "dankBarTransparency": 1,
@@ -9,10 +9,9 @@
   "popupTransparency": 0.92,
   "dockTransparency": 0.85,
   "widgetBackgroundColor": "sth",
-  "surfaceBase": "s",
   "cornerRadius": 12,
   "use24HourClock": true,
-  "showSeconds": true,
+  "showSeconds": false,
   "useFahrenheit": false,
   "nightModeEnabled": false,
   "animationSpeed": 2,
@@ -99,12 +98,12 @@
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
   "workspacesPerMonitor": true,
-  "dwlShowAllTags": false,
+  "dwlShowAllTags": true,
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
-  "clockCompactMode": false,
+  "clockCompactMode": true,
   "focusedWindowCompactMode": false,
-  "runningAppsCompactMode": true,
+  "runningAppsCompactMode": false,
   "keyboardLayoutNameCompactMode": true,
   "runningAppsCurrentWorkspace": true,
   "runningAppsGroupByApp": true,
@@ -117,24 +116,11 @@
       "enabled": true
     },
     {
-      "id": "dankActions",
-      "enabled": true
-    },
-    {
       "id": "workspaceSwitcher",
       "enabled": true
     },
     {
-      "id": "runningApps",
-      "enabled": true
-    },
-    {
-      "id": "spacer",
-      "enabled": true,
-      "size": 20
-    },
-    {
-      "id": "weather",
+      "id": "music",
       "enabled": true
     },
     {
@@ -144,13 +130,13 @@
   ],
   "dankBarCenterWidgets": [
     {
-      "id": "clock",
+      "id": "runningApps",
       "enabled": true
     }
   ],
   "dankBarRightWidgets": [
     {
-      "id": "music",
+      "id": "weather",
       "enabled": true
     },
     {
@@ -158,25 +144,19 @@
       "enabled": true
     },
     {
+      "id": "cpuUsage",
+      "enabled": true
+    },
+    {
+      "id": "memUsage",
+      "enabled": true
+    },
+    {
       "id": "systemTray",
       "enabled": true
     },
     {
-      "id": "cpuUsage",
-      "enabled": true,
-      "minimumWidth": false
-    },
-    {
-      "id": "memUsage",
-      "enabled": true,
-      "minimumWidth": false
-    },
-    {
-      "id": "notificationButton",
-      "enabled": true
-    },
-    {
-      "id": "battery",
+      "id": "clock",
       "enabled": true
     },
     {
@@ -197,7 +177,7 @@
   "iconTheme": "System Default",
   "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
-  "launcherLogoColorOverride": "",
+  "launcherLogoColorOverride": "primary",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
@@ -227,6 +207,7 @@
   "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
   "lockBeforeSuspend": true,
+  "preventIdleForMedia": false,
   "loginctlLockIntegration": true,
   "launchPrefix": "",
   "brightnessDevicePins": {},
@@ -237,9 +218,10 @@
   "dockAutoHide": true,
   "dockGroupByApp": true,
   "dockOpenOnOverview": true,
-  "dockPosition": 1,
+  "dockPosition": 0,
   "dockSpacing": 4,
   "dockBottomGap": 0,
+  "dockMargin": 0,
   "dockIconSize": 40,
   "dockIndicatorStyle": "circle",
   "notificationOverlayEnabled": true,
@@ -248,11 +230,13 @@
   "dankBarVisible": true,
   "dankBarSpacing": 0,
   "dankBarBottomGap": 0,
-  "dankBarInnerPadding": 0,
-  "dankBarPosition": 0,
+  "dankBarInnerPadding": -8,
+  "dankBarPosition": 1,
   "dankBarSquareCorners": true,
   "dankBarNoBackground": true,
-  "dankBarGothCornersEnabled": true,
+  "dankBarGothCornersEnabled": false,
+  "dankBarGothCornerRadiusOverride": false,
+  "dankBarGothCornerRadiusValue": 12,
   "dankBarBorderEnabled": false,
   "dankBarBorderColor": "primary",
   "dankBarBorderOpacity": 1,
