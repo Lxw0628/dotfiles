@@ -143,7 +143,7 @@ layout {
     // Alternatively, you can override it with a window rule called
     // `draw-border-with-background`.
     border {
-        off
+        // off
         width 2
         // active-color   "#707070"      // Neutral gray
         active-color "#ffc87f"
@@ -155,7 +155,7 @@ layout {
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
     focus-ring {
-        // off
+        off
         width 2
         // active-color   "#808080"      // Medium gray
         active-color "#7fc8ff"
@@ -197,6 +197,35 @@ layer-rule {
 overview {
     workspace-shadow {
         // off
+    }
+}
+
+recent-windows {
+    // off
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 12
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        // Alt+grave       { next-window     filter="app-id"; }
+        // Alt+Shift+grave { previous-window filter="app-id"; }
+
+        // Mod+Tab         { next-window; }
+        // Mod+Shift+Tab   { previous-window; }
+        // Mod+grave       { next-window     filter="app-id"; }
+        // Mod+Shift+grave { previous-window filter="app-id"; }
     }
 }
 
@@ -243,6 +272,9 @@ animations {
     }
     config-notification-open-close {
         spring damping-ratio=0.65 stiffness=923 epsilon=0.001
+    }
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
     }
     screenshot-ui-open {
         duration-ms 200
