@@ -265,6 +265,13 @@
   "notificationTimeoutCritical": 0,
   "notificationPopupPosition": 0,
   "osdAlwaysShowValue": true,
+  "osdPosition": 5,
+  "osdVolumeEnabled": true,
+  "osdBrightnessEnabled": true,
+  "osdIdleInhibitorEnabled": true,
+  "osdMicMuteEnabled": true,
+  "osdCapsLockEnabled": true,
+  "osdPowerProfileEnabled": true,
   "powerActionConfirm": true,
   "powerMenuActions": [
     "reboot",
@@ -286,6 +293,7 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
+  "displayNameMode": "system",
   "screenPreferences": {
     "dock": [
       "all"

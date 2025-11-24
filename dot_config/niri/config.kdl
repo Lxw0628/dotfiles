@@ -202,7 +202,7 @@ overview {
 
 recent-windows {
     // off
-    open-delay-ms 150
+    open-delay-ms 200
 
     highlight {
         active-color "#999999ff"
@@ -621,9 +621,10 @@ binds {
     Ctrl+XF86Launch1 { screenshot-screen; }
     Alt+XF86Launch1 { screenshot-window; }
     Print { screenshot; }
+    Alt+Ctrl+A { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    Alt+Ctrl+A { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; }
+    // Alt+Ctrl+A { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; }
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Alt+L { power-off-monitors; }
