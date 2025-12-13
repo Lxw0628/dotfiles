@@ -6,7 +6,6 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     QT_QPA_PLATFORMTHEME "gtk3"
     QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    TERMINAL "kitty"
 }
 
 // This config is in the KDL format: https://kdl.dev
@@ -444,20 +443,23 @@ binds {
     Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     // Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     // Night mode toggle
-    Mod+Shift+N allow-when-locked=true {
-      spawn "dms" "ipc" "call" "theme" "toggle";
+    // Mod+Shift+N {
+        // spawn
+    // }
+    Mod+Shift+M allow-when-locked=true {
+        spawn "dms" "ipc" "call" "theme" "toggle";
     }
 
     // === Security ===
-    Mod+Alt+Ctrl+L hotkey-overlay-title="Lock Screen" { 
-        spawn "dms" "ipc" "call" "lock" "lock"; 
+    Mod+Alt+Ctrl+L hotkey-overlay-title="Lock Screen" {
+        spawn "dms" "ipc" "call" "lock" "lock";
     }
     // Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { 
-        spawn "dms" "ipc" "call" "processlist" "toggle"; 
+    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
+        spawn "dms" "ipc" "call" "processlist" "toggle";
     }
     Mod+Shift+Q hotkey-overlay-title="Power Menu" {
-      spawn "dms" "ipc" "call" "powermenu" "toggle";
+        spawn "dms" "ipc" "call" "powermenu" "toggle";
     }
 
     // === Audio Controls ===
@@ -631,7 +633,7 @@ binds {
 
     // === bar ===
     Mod+b {
-        spawn "dms" "ipc" "call" "bar" "toggle";
+        spawn "dms" "ipc" "call" "bar" "toggle" "index" "0";
     }
 
     Mod+Y hotkey-overlay-title="Browse Wallpapers" {
