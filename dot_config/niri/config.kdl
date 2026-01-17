@@ -201,6 +201,7 @@ overview {
 
 recent-windows {
     // off
+    debounce-ms 750
     open-delay-ms 200
 
     highlight {
@@ -647,3 +648,5 @@ debug {
     // render-drm-device "/dev/dri/renderD128"
     // honor-xdg-activation-with-invalid-serial
 }
+
+include "dms/outputs.kdl"
